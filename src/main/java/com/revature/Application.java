@@ -19,7 +19,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.revature.beans.TRex;
 
 @SpringBootApplication
-@RabbitListener(queues = "foo")
+@RabbitListener(queues = "trex")
 @EnableScheduling
 public class Application extends SpringBootServletInitializer {
 	
