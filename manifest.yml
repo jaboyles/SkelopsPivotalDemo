@@ -1,0 +1,5 @@
+applications:
+- name: cf-skeletor
+  memory: 700M
+  instances: 1
+  no-route: true
