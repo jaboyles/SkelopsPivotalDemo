@@ -10,12 +10,14 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.boot.web.support.SpringBootServletInitializer;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Profile;
 import org.springframework.messaging.handler.annotation.Payload;
 import org.springframework.scheduling.annotation.EnableScheduling;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.revature.beans.RabbitReceiver;
 import com.revature.beans.TRex;
 
 @SpringBootApplication
@@ -28,13 +30,11 @@ public class Application extends SpringBootServletInitializer {
 		return new Queue("trex");
 	}
 	
-	@RabbitHandler
-	public void process(@Payload String foo) throws JsonProcessingException, IOException {
-		ObjectMapper mapper = new ObjectMapper();
-		JsonNode j = mapper.readTree(foo);
-		TRex rex = new TRex(j.get("name").asText(), j.get("featherColor").asText());
-		System.err.println(rex.toString());
-	}
+	@Profile("receiver")
+    @Bean
+    public RabbitReceiver receiver() {
+        return new RabbitReceiver();
+    }
 	
 	public static void main(String[] args){
 		SpringApplication.run(Application.class, args);
