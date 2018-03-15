@@ -33,7 +33,7 @@ public class Application extends SpringBootServletInitializer {
 		ObjectMapper mapper = new ObjectMapper();
 		JsonNode j = mapper.readTree(foo);
 		TRex rex = new TRex(j.get("name").asText(), j.get("featherColor").asText());
-		System.out.println(rex.toString());
+		System.err.println(rex.toString());
 	}
 	
 	public static void main(String[] args){

@@ -5,3 +5,9 @@ applications:
   no-route: true
   buildpack: https://github.com/cloudfoundry/java-buildpack.git
   path: target/SpringBootDemo-0.0.1-SNAPSHOT.jar
+  
+ rabbitmq:
+  image: rabbitmq
+  ports:
+    - "5672:5672"
+    - "15672:15672"
