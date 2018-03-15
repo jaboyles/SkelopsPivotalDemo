@@ -24,7 +24,7 @@ public class TRexController {
 	@Autowired 
 	private TRexService trs;
 	
-	//This is a comment
+	//This is a better comment
 	@GetMapping("/all")
 	public ResponseEntity<List<TRex>> getAllTRexes() {
 		return new ResponseEntity<>(trs.getAllTRexes(), HttpStatus.OK);
