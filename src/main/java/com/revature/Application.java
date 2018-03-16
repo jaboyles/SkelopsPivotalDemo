@@ -13,6 +13,7 @@ import org.springframework.scheduling.annotation.EnableScheduling;
 
 import com.revature.beans.RabbitReceiver;
 
+// trying to make things work
 @SpringBootApplication
 @RabbitListener(queues = "trex")
 @EnableEurekaClient
