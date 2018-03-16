@@ -1,6 +1,7 @@
 package com.revature;
 
 import org.springframework.amqp.core.Queue;
+import org.springframework.amqp.rabbit.annotation.EnableRabbit;
 import org.springframework.amqp.rabbit.annotation.RabbitListener;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -15,7 +16,7 @@ import com.revature.beans.RabbitReceiver;
 
 // trying to make things work
 @SpringBootApplication
-@RabbitListener(queues = "trex")
+@EnableRabbit
 @EnableEurekaClient
 @EnableScheduling
 public class Application extends SpringBootServletInitializer {
