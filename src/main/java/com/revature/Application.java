@@ -2,7 +2,6 @@ package com.revature;
 
 import org.springframework.amqp.core.Queue;
 import org.springframework.amqp.rabbit.annotation.EnableRabbit;
-import org.springframework.amqp.rabbit.annotation.RabbitListener;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.builder.SpringApplicationBuilder;
@@ -22,15 +21,15 @@ import com.revature.beans.RabbitReceiver;
 public class Application extends SpringBootServletInitializer {
 	
 	@Bean
-	public Queue fooQueue() {
+	public Queue trexQueue() {
 		return new Queue("trex");
 	}
 	
-	@Profile("receiver")
-    @Bean
-    public RabbitReceiver receiver() {
-        return new RabbitReceiver();
-    }
+//	@Profile("receiver")
+//    @Bean
+//    public RabbitReceiver receiver() {
+//        return new RabbitReceiver();
+//    }
 	
 	public static void main(String[] args){
 		SpringApplication.run(Application.class, args);
